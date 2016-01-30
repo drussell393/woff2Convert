@@ -39,7 +39,7 @@ changed via the command line arguments, but I will list the description of each
 configuration key here.
 
 | Key              | Description                                                                                          |
-| ---------------- |:----------------------------------------------------------------------------------------------------:|
+| ---------------- | ---------------------------------------------------------------------------------------------------- |
 | woff2Path        | The directory that your binaries for Google's woff2 exist[1].                                        |
 | defaultOutputDir | The default directory to store the converted files in                                                |
 | defaultFamily    | Not practical, but if you want to use a default font family when you don't specify it in the command |
@@ -56,7 +56,7 @@ the whole file path, though. It's **not** relative to the python file.
 The script accepts the following arguments:
 
 | Argument                | Shorthand         | Description                       |
-| ----------------------- |:-----------------:| ---------------------------------:|
+| ----------------------- | ----------------- | --------------------------------- |
 | --family="Helvetica"    | -f "Helvetica"    | Font family you want to convert   |
 | --outdir="/path/to/dir" | -o "/path/to/dir" | Path to the output directory      |
 | --charset="latin"       | -c "latin"        | Character set that you want       |
