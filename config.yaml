@@ -1,0 +1,8 @@
+# Configuration YAML File for woff2Convert
+# Author: Dave Russell (drussell393)
+
+woff2Path: /please/change/your/path
+defaultOutputDir: /please/change/your/path/converted
+defaultFamily: None
+defaultCharset: latin
+keepFile: False
