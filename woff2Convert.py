@@ -60,7 +60,15 @@ def main(argv):
 def getWoffFile(fontFamily, charset):
     url = "https://fonts.googleapis.com/css?family=" + fontFamily.replace(' ', '+')
     request = urllib2.Request(url, headers={'User-Agent': 'Mozilla/5.0 (X11; CrOS x86_64 7520.67.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.110 Safari/537.36'})
-    connection = urllib2.urlopen(request)
+    try:
+        connection = urllib2.urlopen(request)
+    except urllib2.HTTPError as e:
+        if (e.code == 404) or (e.code == 400):
+            print('This font family doesn\'t exist on Google Fonts.')
+            sys.exit(2)
+        else:
+            print('There was an issue obtaining the Google Font. The web server replied with response code: ' + str(e.code))
+            sys.exit(2)
     content = connection.read()
 
     # Get our file to download
