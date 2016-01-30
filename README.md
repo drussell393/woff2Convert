@@ -1,3 +1,6 @@
+This will convert woff2's from Google Fonts to TTF, and save it to an outfile on
+most Unix-based systems (command-line) with Python.
+
 # Quick Start Guide
 
 This README cleanly documents how to use woff2Convert, but will not document how to
