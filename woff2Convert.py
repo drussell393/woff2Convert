@@ -16,10 +16,6 @@ def main(argv):
     outputDir = config['defaultOutputDir']
     charset = config['defaultCharset']
 
-    if len(argv) == 0:
-        print('usage: woff2Convert.py [--help] [--outdir="/path/to/outputDirectory"] [--family="Noticia Text"] [--charset="latin"]')
-        sys.exit(2)
-
     # Get our arguments (we should be passing this a family name and an optional outfile name)
     try:
         opts, args = getopt.getopt(argv, "hf:o:c:", ["help", "family=", "outdir=", "charset="])
