@@ -8,6 +8,7 @@ import getopt
 import yaml
 import urllib2
 
+
 def main(argv):
     with open('config.yaml', 'r') as config:
         config = yaml.load(config)
@@ -16,16 +17,21 @@ def main(argv):
     outputDir = config['defaultOutputDir']
     charset = config['defaultCharset']
 
-    # Get our arguments (we should be passing this a family name and an optional outfile name)
+    # Get our arguments (we should be passing this a family name and an
+    # optional outfile name)
     try:
-        opts, args = getopt.getopt(argv, "hf:o:c:", ["help", "family=", "outdir=", "charset="])
+        opts, args = getopt.getopt(
+            argv, "hf:o:c:", [
+                "help", "family=", "outdir=", "charset="])
     except getopt.GetoptError:
-        print('usage: woff2Convert.py [--help] [--outdir="/path/to/outputDirectory"] [--family="Noticia Text"] [--charset="latin"]')
+        print(
+            'usage: woff2Convert.py [--help] [--outdir="/path/to/outputDirectory"] [--family="Noticia Text"] [--charset="latin"]')
         sys.exit(2)
 
     for opt, arg in opts:
         if (opt in ('-h', '--help')):
-            print('usage: woff2Convert.py [--help] [--outdir="/path/to/outputDirectory"] [--family="Noticia Text"] [--charset="latin"]')
+            print(
+                'usage: woff2Convert.py [--help] [--outdir="/path/to/outputDirectory"] [--family="Noticia Text"] [--charset="latin"]')
             sys.exit()
         elif (opt in ('-f', '--family')):
             fontFamily = arg
@@ -53,9 +59,14 @@ def main(argv):
         print('Please specify a family either in the command by using the "-f" option, or in the config.yaml file')
         sys.exit(2)
 
+
 def getWoffFile(fontFamily, charset):
-    url = "https://fonts.googleapis.com/css?family=" + fontFamily.replace(' ', '+')
-    request = urllib2.Request(url, headers={'User-Agent': 'Mozilla/5.0 (X11; CrOS x86_64 7520.67.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.110 Safari/537.36'})
+    url = "https://fonts.googleapis.com/css?family=" + \
+        fontFamily.replace(' ', '+')
+    request = urllib2.Request(
+        url,
+        headers={
+            'User-Agent': 'Mozilla/5.0 (X11; CrOS x86_64 7520.67.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.110 Safari/537.36'})
     try:
         connection = urllib2.urlopen(request)
     except urllib2.HTTPError as e:
